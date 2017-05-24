@@ -1,0 +1,23 @@
+Javi ha encontrado que el nombre del atributo de los labels de las recetas es 'keywords' .
+La idea ahora es separar el json que el me dio en dos, uno con recetas etiquetadas y otro
+con recetas sin etiquetar.
+
+Le he dado una pasada al json principal y de las +9000 recetas hay 6182 con el atributo 'keywords' y de las cuales 3903 etiquetadas, luego faltara saber
+de estas cuales tienen etiquetas que nos interesen.
+
+Hay 5123 recetas sin el atributo 'keywords' o si lo tienen, estan sin etiqueta.
+
+Voy a parsear las recetas etiquetadas con un bag of words de los ingredientes de cada receta. Pero antes tendre que leer todos los ingredientes del fichero ingredientes.json
+para hacer una bolsa de términos sin stopwords y stemizadas. Creo que no va a hacer falta, los ingredientes tienen un código único y en las recetas se vincula el ingrediente con
+este id. Por lo que en vez de intentar aplicar un BoW con las palabras de los ingredientes, usaré su ID.
+
+Para darle la etiqueta a la receta estaba pensando en ver si keywords contiene 'primer plato' o 'segundo plato', pero estoy fijándome que puede estar escrito en mayúsculas, minúsculas,
+con mas info... Tendre que quitar stopwords y stemizar a las keywords. Lo guardaré en un fichero para tener acceso en el futuro.
+
+
+Versión después del robo: ==============================================================================
+
+Total de recetas: 9026
+Recetas etiquetadas: 3093
+Recetas no etiquetadas: 5123
+8216 wtf oO ?

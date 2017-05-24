@@ -1,0 +1,11 @@
+git add README.md
+git commit -m "first commit"
+git push -u tfg master
+
+
+
+    git add -A stages All
+
+    git add . stages new and modified, without deleted
+
+    git add -u stages modified and deleted, without new
