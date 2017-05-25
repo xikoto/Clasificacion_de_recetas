@@ -18,8 +18,8 @@ con mas info... Tendre que quitar stopwords y stemizar a las keywords. Lo guarda
 Versión después del robo: ==============================================================================
 
 Total de recetas: 9026
-Recetas etiquetadas: 3093
-Recetas no etiquetadas: 5123
+Recetas etiquetadas: 3903
+Recetas no etiquetadas: 5171
 8216 wtf oO ?
 
 - Voy a crear un BoW de ingredientes. Utilizaré ingredientes.json y de cada ingrediente, sacaré su ID.

@@ -21,7 +21,9 @@ with open('../DATOS/recetas.json') as recetas_file:
         if 'keywords' not in receta:
             recetasNOEtiquetadas.append(receta)
         elif len(receta['keywords']) == 0:
-                recetasNOEtiquetadas.append(receta)
+            recetasNOEtiquetadas.append(receta)
+        elif len(receta['keywords']) == 1 and receta['keywords'][0]=='':
+            recetasNOEtiquetadas.append(receta)
 
 
         i += 1

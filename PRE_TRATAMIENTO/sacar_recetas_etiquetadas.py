@@ -8,6 +8,7 @@ from UTIL.progressBar import printProgressBar
 
 
 recetasEtiquetadas = []
+recetasNOEtiquetadas = []
 print("Leyendo fichero json...")
 with open('../DATOS/recetas.json') as recetas_file:
     recetas = json.load(recetas_file)
@@ -19,8 +20,15 @@ with open('../DATOS/recetas.json') as recetas_file:
     for receta in recetas:
 
         if 'keywords' in receta:
-            if len(receta['keywords']) != 0:
-                recetasEtiquetadas.append(receta)
+            if len(receta['keywords']) == 0:
+                recetasNOEtiquetadas.append(receta)
+            else:
+                if len(receta['keywords']) == 1 and receta['keywords'][0] == '':
+                    recetasNOEtiquetadas.append(receta)
+                else:
+                    recetasEtiquetadas.append(receta)
+        else:
+            recetasNOEtiquetadas.append(receta)
 
 
         i += 1
@@ -30,3 +38,8 @@ print('Se han encontrado ' + str(len(recetasEtiquetadas)) + ' recetas etiquetada
 print('Guardando lista en DATOS/recetas_etiquetadas.json ...')
 with open('../DATOS/recetas_etiquetadas.json', 'w') as outfile:
     json.dump(recetasEtiquetadas, outfile)
+
+print('Se han encontrado ' + str(len(recetasNOEtiquetadas)) + ' recetas no etiquetadas de un total de ' + str(l) + ' recetas.')
+print('Guardando lista en recetas_NO_etiquetadas.json ...')
+with open('../DATOS/recetas_NO_etiquetadas.json', 'w') as outfile:
+    json.dump(recetasNOEtiquetadas, outfile)

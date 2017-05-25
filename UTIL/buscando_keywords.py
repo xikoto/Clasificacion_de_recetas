@@ -28,5 +28,6 @@ with open('../DATOS/recetas.json') as recetas_file:
         i += 1
         printProgressBar(i, l, prefix = 'Progress:', suffix = 'Complete', length = 50)
 
+    print(keywords)
     for coso in keywords:
         print(coso)
