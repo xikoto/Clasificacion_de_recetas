@@ -17,9 +17,32 @@ con mas info... Tendre que quitar stopwords y stemizar a las keywords. Lo guarda
 
 Versión después del robo: ==============================================================================
 
-Total de recetas: 9026
-Recetas etiquetadas: 3903
-Recetas no etiquetadas: 5171
-8216 wtf oO ?
+Separo el json original en dos, uno con recetas etiquetadas y otro con recetas no etiquetadas.
 
-- Voy a crear un BoW de ingredientes. Utilizaré ingredientes.json y de cada ingrediente, sacaré su ID.
+Total de recetas: 9026
+Recetas etiquetadas: 3855
+Recetas no etiquetadas: 5171
+
+- Voy a crear un Vector de BoW de ingredientes. Utilizaré ingredientes.json y de cada ingrediente, sacaré su ID.
+- He creado un Vector de BoW con los textos de la receta, utilizando:
+      * receta['nutrition']['dietLabels']
+      * receta['tips']['Tiempo de preparaci\u00f3n']
+      * receta['tips']['Dificultad']
+      * receta['instructions'][instruccion]
+
+- Voy a separar los datos. Primero tengo que ver como organizo las clases.
+      * Bocadillos: 21
+            - bocadillos / sándwich
+      * Entrantes: 568
+            - entrantes
+            - aperitivos / entrantes / tapas
+            - tapas
+      * Primer plato: 1075
+            - primer plato,guarnición y salsas
+            - primer plato
+      * Segundo plato: 1010
+            - segundo plato
+      * Postre: 112
+            - bizcochos / pasteles / tartas / mousse,chocolate
+            - postres,bebidas
+            - bizcochos / pasteles / tartas / mousse
